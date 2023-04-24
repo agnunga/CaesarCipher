@@ -9,8 +9,9 @@ public class Main {
 //        System.out.println("Decode Q => " + cipher.decodeChar('Q', 23));
 
         String input = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
-        String encoded = cipher.encodeSentence(input, 23);
-        String decoded = cipher.decodeSentence(encoded, 23);
+        cipher.setKey(23);
+        String encoded = cipher.encodeSentence(input);
+        String decoded = cipher.decodeSentence(encoded);
 
         System.out.println("Encode: " + input + "\nOutput: " + encoded);
         System.out.println("Decode: " + encoded + "\nOutput: " + decoded);

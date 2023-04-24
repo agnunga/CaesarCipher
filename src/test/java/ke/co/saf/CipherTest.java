@@ -12,8 +12,10 @@ public class CipherTest {
         String input = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
         String encodedString = "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD";
 
-        assertEquals(encodedString, cipher.encodeSentence(input, 23));
-        assertEquals(input, cipher.decodeSentence(encodedString, 23));
+        cipher.setKey(23);
+        assertEquals(encodedString, cipher.encodeSentence(input));
+        assertEquals(input, cipher.decodeSentence(encodedString));
+
 
     }
 
