@@ -4,9 +4,7 @@ public class Cipher {
 
     private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public char encodeChar(char c, int key){
-        if(key < 0){
-            key = key+26;
-        }
+        key = (key < 0)? key+26 : key;
         int index = alphabet.indexOf(c);
         return alphabet.charAt((index + key)%26);
     }
