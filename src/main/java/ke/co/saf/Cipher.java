@@ -1,4 +1,4 @@
 package ke.co.saf;
 
-public class Main {
+public class Cipher {
 }
