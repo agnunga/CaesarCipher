@@ -9,7 +9,11 @@ public class CipherTest {
     public void testEncoding(){
 
         Cipher cipher = new Cipher();
-        assertEquals('B', cipher.encodeChar('A', 1));
+        String input = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+        String encodedString = "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD";
+
+        assertEquals(encodedString, cipher.encodeSentence(input, 23));
+        assertEquals(input, cipher.decodeSentence(encodedString, 23));
 
     }
 
