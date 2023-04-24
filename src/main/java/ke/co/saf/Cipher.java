@@ -31,7 +31,6 @@ public class Cipher {
         for (int i = 0; i<encodedString.length(); i++){
             if(alphabet.indexOf(encodedString.charAt(i)) != -1) {
                 builder.setCharAt(i, decodeChar(encodedString.charAt(i), key));
-                System.out.println("SS::: " + builder.toString());
             }
         }
         return builder.toString();
