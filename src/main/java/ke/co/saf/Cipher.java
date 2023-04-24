@@ -4,13 +4,16 @@ public class Cipher {
 
     private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public char encodeChar(char c, int key){
+        if(key < 0){
+            key = key+26;
+        }
         int index = alphabet.indexOf(c);
         System.out.println("Index of " + c + " is " + index);
-        return alphabet.charAt((index + key + 26)%26);
+        return alphabet.charAt((index + key)%26);
     }
 
     public char decodeChar(char c, int key){
-        return encodeChar(c, (key*-1+26));
+        return encodeChar(c, (key*-1));
     }
 
     public String encodeSentence(String sentence, int key){
@@ -24,6 +27,13 @@ public class Cipher {
     }
 
     public String decodeSentence(String encodedString, int key) {
-        return encodeSentence( encodedString, key*-1+26);
+        StringBuilder builder = new StringBuilder(encodedString);
+        for (int i = 0; i<encodedString.length(); i++){
+            if(alphabet.indexOf(encodedString.charAt(i)) != -1) {
+                builder.setCharAt(i, decodeChar(encodedString.charAt(i), key));
+                System.out.println("SS::: " + builder.toString());
+            }
+        }
+        return builder.toString();
     }
 }
