@@ -2,6 +2,8 @@ package ke.co.saf;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Cipher {
@@ -44,6 +46,10 @@ public class Cipher {
         return encodeSentence(readTextFile(path));
     }
 
+    public String decodeTextFile(String path) {
+        return decodeSentence(readTextFile(path));
+    }
+
     public boolean validKey(int key){
         if(key > 25){
             return false;
@@ -66,6 +72,17 @@ public class Cipher {
             throw new RuntimeException(e);
         }
         return text;
+    }
+    public boolean writeTextFile(String path, String content) {
+        try {
+            FileWriter fileWriter = new FileWriter(path);
+            fileWriter.write(content);
+            fileWriter.close();
+            return true;
+        } catch (IOException e) {
+            //throw new RuntimeException(e);
+            return false;
+        }
     }
 
     public String decodeSentence(String encodedString) {
