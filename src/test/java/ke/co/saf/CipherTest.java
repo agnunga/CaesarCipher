@@ -1,12 +1,13 @@
 package ke.co.saf;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CipherTest {
 
     @Test
-    public void testEncoding(){
+    public void testEncoding() {
 
         Cipher cipher = new Cipher();
         String input = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
