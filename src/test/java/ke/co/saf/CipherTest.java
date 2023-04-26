@@ -16,6 +16,17 @@ public class CipherTest {
         assertEquals(encodedString, cipher.encodeSentence(input));
         assertEquals(input, cipher.decodeSentence(encodedString));
 
+        /*
+        System.out.println("Encode T => " + cipher.encodeChar('T'));
+        System.out.println("Decode Q => " + cipher.decodeChar('Q'));
+
+        String encoded = cipher.encodeSentence(inputString);
+        String decoded = cipher.decodeSentence(encoded);
+
+        System.out.println("Input String: " + inputString
+                + "\nEncrypted String: " + encoded);
+        System.out.println("Decrypted String: " + decoded);
+        */
 
     }
 

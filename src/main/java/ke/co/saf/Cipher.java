@@ -1,5 +1,9 @@
 package ke.co.saf;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Cipher {
 
     private final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -34,6 +38,34 @@ public class Cipher {
                 builder.setCharAt(i, encodeChar(sentence.charAt(i)));
         }
         return builder.toString();
+    }
+
+    public String encodeTextFile(String path) {
+        return encodeSentence(readTextFile(path));
+    }
+
+    public boolean validKey(int key){
+        if(key > 25){
+            return false;
+        }else return key >= 0;
+    }
+
+    public String readTextFile(String path) {
+        File textFile = new File(path);
+        String text = "";
+
+        try {
+            Scanner scanner = new Scanner(textFile);
+            StringBuilder sb = new StringBuilder();
+            while (scanner.hasNext()) {
+                sb.append(scanner.nextLine()).append("\n");
+            }
+            text = sb.toString();
+        } catch (
+                FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return text;
     }
 
     public String decodeSentence(String encodedString) {
